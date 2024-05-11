@@ -14,7 +14,7 @@
 @define-color subtext0 #a6adc8;
 @define-color subtext1 #bac2de;
 
-@define-color surface0 rgba(22, 25, 37, 0.9);
+@define-color surface0 rgba(22, 25, 38, 0.9);
 @define-color surface1 #45475a;
 @define-color surface2 #585b70;
 @define-color surface3 #394161;
@@ -46,6 +46,7 @@
   font-family: 'CaskaydiaCove Nerd Font', monospace;
   font-size: 13px;
   min-height: 0;
+  margin-bottom: 0px;
 }
 
 /* =============================== */
@@ -55,6 +56,7 @@
 /* Bar Styling */
 #waybar {
   background: transparent;
+  /* background: rgba(150,150,150,0.3); */
   color: @text;
 }
 
@@ -114,6 +116,7 @@
 #workspaces {
   padding-left: 8px;
   padding-right: 8px;
+  margin-left: 8px;
 }
 
 #workspaces * {
@@ -404,6 +407,7 @@
   border-bottom-left-radius: 0;
   padding-left: 8px; */
   padding-right: 1.20rem;
+  margin-right: 8px;
 }
 
 /* =============================== */

@@ -2,13 +2,13 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     //"gtk-layer-shell": "false",
-    "height": 45, // Waybar height (to be removed for auto height)
+    "height": 35, // Waybar height (to be removed for auto height)
     // "width": 2560, // Waybar width
     "spacing": 0, // Gaps between modules (0px) Adjusted in the css
-    "margin-top": 0,
+    "margin-top": -5,
     //"margin-bottom":-10,
-    "margin-left": 10,
-    "margin-right": 10,
+    "padding-left": 0,
+    "padding-right": 0,
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
