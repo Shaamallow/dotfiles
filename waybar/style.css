@@ -103,19 +103,14 @@
 /* Workspaces stuff */
 
 #workspaces {
-  font-size: 0px;
-  padding: 0px;
-  margin: 0px;
+  font-size: 1px;
 }
 
 #workspaces button {
   background-color: @surface3;
   color: @mauve;
-  border-radius: 100%;
-  font-size: 5px;
+  /* border-radius: 100%; */
   padding: 0px;
-  margin: 0px;
-  margin-left: 3px;
   transition: all 0.2s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
@@ -128,6 +123,11 @@
 }
 
 #bluetooth {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#mpris {
   font-size: 1.2em;
   font-weight: bold;
 }

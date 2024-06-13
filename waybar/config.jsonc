@@ -1,6 +1,6 @@
 {
   "layer": "top", // Waybar at top layer
-  "position": "bottom", // Waybar position (top|bottom|left|right)
+  "position": "top", // Waybar position (top|bottom|left|right)
   // "gtk-layer-shell": "false",
   // "height": 35, // Waybar height (to be removed for auto height)
   // "width": 2560, // Waybar width
@@ -31,7 +31,7 @@
     "custom/power",
   ],
   "hyprland/workspaces": {
-    // "format": "{icon}",
+    // "format": "{id}",
     "format": "",
     // "format-icons": {
     //   "active": "",
