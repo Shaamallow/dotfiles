@@ -1,11 +1,6 @@
-/*
-@import "catppuccin/mocha.css";
-*/
+/* COLORS */
 
-/*
-* Catppuccin Mocha palette
-*/
-
+/* Catppuccin */
 @define-color base #1e1e2e;
 @define-color mantle #181825;
 @define-color crust #11111b;
@@ -15,8 +10,9 @@
 @define-color subtext1 #bac2de;
 
 @define-color surface0 rgba(22, 25, 38, 0.9);
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
+@define-color surface1 rgba(22, 25, 38, 0.7);
+@define-color surface2 rgba(59, 61, 80, 0.9);
+@define-color surface3 #585b70;
 @define-color surface3 #394161;
 
 @define-color overlay0 #6c7086;
@@ -38,376 +34,112 @@
 @define-color flamingo #f2cdcd;
 @define-color rosewater #f5e0dc;
 
-/* =============================== */
-/* Universal Styling */
+/* Reset all styles */
 * {
   border: none;
-  border-radius: 0;
-  font-family: 'CaskaydiaCove Nerd Font', monospace;
-  font-size: 13px;
+  /* border-radius: 3px; */
   min-height: 0;
-  margin-bottom: 0px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-/* =============================== */
-
-
-/* =============================== */
-/* Bar Styling */
+/* The whole bar */
 #waybar {
-  background: transparent;
-  /* background: rgba(150,150,150,0.3); */
+  background: @surface1;
   color: @text;
+  font-family: "CaskaydiaCove Nerd Font", monospace;
+  font-size: 10px;
+  font-weight: bold;
 }
 
-/* =============================== */
-
-
-/* =============================== */
-/* Main Modules */
-#custom-launcher,
-#workspaces,
-#window,
-#tray,
-#backlight,
-#clock,
+/* Each module */
 #battery,
-#pulseaudio,
+#clock,
+#memory,
+#mode,
 #network,
 #bluetooth,
-#mpd,
-#cpu,
-#memory,
-#disk,
+#pulseaudio,
 #temperature,
-#mpris,
-#custom-updates,
-#custom-nordvpn,
+#cpu,
+#tray,
 #custom-notifications,
 #custom-power,
-#custom-custom,
-#custom-cycle_wall,
-#custom-clipboard,
-#custom-ss,
-#custom-weather {
-  background-color: @surface0;
-  color: @text;
-  border-radius: 16px;
-  padding: 0.5rem 1rem;
-  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
-  margin-top: 10px;
-  /*
-    margin-bottom: 10px;
-*/
-  margin-right: 10px;
+#mpris,
+#backlight {
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
-/* =============================== */
-/* Launcher Module */
-#custom-launcher {
-  color: @green;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-right: 10px;
+#custom-power {
+  font-weight: bold;
+  padding-right: 6px;
+  margin-right: 0px;
 }
 
-/* =============================== */
-/* Workspaces */
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical:not(.charging) {
+  background: @red;
+  border-radius: 2px;
+  color: @base;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning:not(.charging) {
+  background: @orange;
+  border-radius: 2px;
+  color: @base;
+}
+
+/* Workspaces stuff */
+
 #workspaces {
-  padding-left: 8px;
-  padding-right: 8px;
-  margin-left: 8px;
-}
-
-#workspaces * {
   font-size: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 #workspaces button {
   background-color: @surface3;
   color: @mauve;
   border-radius: 100%;
-  min-height: 14px;
-  min-width: 14px;
-  margin: 5px 8px;
+  font-size: 5px;
   padding: 0px;
-  transition: all 0.5s cubic-bezier(0.33, 1.0, 0.68, 1.0);
-  box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+  margin: 0px;
+  margin-left: 3px;
+  transition: all 0.2s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 #workspaces button.active {
-  /*color: @surface0;
-    border-radius: 1rem;
-    padding: 0rem 10px;*/
-  background: rgba(203, 166, 247, 1);
-  background-size: 400% 400%;
+  background: @mauve;
 }
 
 #workspaces button:hover {
   background-color: @mauve;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 30%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradient_f {
-  0% {
-    background-position: 0% 200%;
-  }
-
-  50% {
-    background-position: 200% 0%;
-  }
-
-  100% {
-    background-position: 400% 200%;
-  }
-}
-
-@keyframes gradient_f_nh {
-  0% {
-    background-position: 0% 200%;
-  }
-
-  100% {
-    background-position: 200% 200%;
-  }
-}
-
-/* =============================== */
-
-
-/* =============================== */
-/* System Monitoring Modules */
-#cpu,
-#memory,
-#temperature {
-  color: @blue;
-}
-
-#cpu {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-right: 0px;
-  padding-right: 5px;
-}
-
-#memory {
-  border-radius: 0px;
-  margin-right: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#temperature {
-  border-radius: 0px;
-  margin-right: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#disk {
-  color: @peach;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 5px;
-  padding-right: 1rem;
-}
-
-/* Updates Module */
-#custom-updates {
-  color: @sky;
-}
-
-/* =============================== */
-
-
-/* =============================== */
-/* Clock Module */
-#clock {
-  color: @flamingo;
-}
-
-/* =============================== */
-
-#mpris.playing {
-  background: rgba(148, 226, 213, 0.8);
-  background-size: 400% 400%;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#mpris.paused {
-  background: rgba(137, 120, 250, 0.8);
-  background-size: 400% 400%;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-
-/* =============================== */
-/* Music/PlayerCTL Module */
-#mpris {
-  color: @mauve;
-}
-
-/* =============================== */
-
-
-/* =============================== */
-/* Network Module */
-#network {
-  color: @white;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-right:5px;
-  margin-right:0px;
-}
-
 #bluetooth {
-  color:@white;
-  border-top-left-radius:0;
-  border-bottom-left-radius:0;
-  padding-left:5px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-/* =============================== */
-
-
-/* =============================== */
-/* PulseAudio Module */
-#pulseaudio {
-  color: @mauve;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-right: 0px;
-  padding-right: 5px;
+/* All hoverable elements */
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-notifications:hover,
+#custom-power:hover,
+#mpris:hover,
+#cpu:hover {
+  background: @surface2;
+  border-radius: 4px;
 }
-
-/* =============================== */
-
-
-/* =============================== */
-/* Backlight Module */
-#backlight {
-  color: @teal;
-  border-radius: 0;
-  margin-right: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-/* =============================== */
-
-
-/* =============================== */
-/* Battery Module */
-#battery {
-  color: @green;
-  border-radius: 0;
-  margin-right: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @maroon;
-}
-
-#battery.critical:not(.charging) {
-  color: @red;
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes blink {
-  to {
-    background: @red;
-    color: @surface1;
-  }
-}
-
-/* =============================== */
-
-/* Notifications Module */
-#custom-notifications {
-  color: @mauve;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 5px;
-  padding-right: 1.25rem;
-}
-
-
-/* =============================== */
-/* Tray Module */
-#tray {
-  color: @mauve;
-  padding-right: 1.25rem;
-}
-
-/* =============================== */
-
-
-/* =============================== */
-/* |       Custom Modules        | */
-/* =============================== */
-#custom-custom {
-  color: @peach;
-  padding-right: 1.25rem;
-  margin-right: 0px;
-}
-
-/* Screenshot */
-#custom-ss {
-  color: @mauve;
-  padding-right: 1.5rem;
-}
-
-/* Wallpaper */
-#custom-cycle_wall {
-  background: linear-gradient(45deg, rgba(245, 194, 231, 1) 0%, rgba(203, 166, 247, 1) 0%, rgba(243, 139, 168, 1) 13%, rgba(235, 160, 172, 1) 26%, rgba(250, 179, 135, 1) 34%, rgba(249, 226, 175, 1) 49%, rgba(166, 227, 161, 1) 65%, rgba(148, 226, 213, 1) 77%, rgba(137, 220, 235, 1) 82%, rgba(116, 199, 236, 1) 88%, rgba(137, 180, 250, 1) 95%);
-  background-size: 500% 500%;
-  animation: gradient 7s linear infinite;
-}
-
-/* Notifications Module */
-#custom-clipboard {
-  color: @mauve;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-right: 0px;
-  padding-right: 8px;
-}
-
-/* Powermenu Module */
-#custom-power {
-  color: @mauve;
-  /* border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 8px; */
-  padding-right: 1.20rem;
-  margin-right: 8px;
-}
-
-/* =============================== */

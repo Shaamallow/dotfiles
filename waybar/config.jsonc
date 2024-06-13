@@ -1,12 +1,12 @@
 {
   "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
-  //"gtk-layer-shell": "false",
-  "height": 35, // Waybar height (to be removed for auto height)
+  "position": "bottom", // Waybar position (top|bottom|left|right)
+  // "gtk-layer-shell": "false",
+  // "height": 35, // Waybar height (to be removed for auto height)
   // "width": 2560, // Waybar width
   "spacing": 0, // Gaps between modules (0px) Adjusted in the css
-  "margin-top": -5,
-  //"margin-bottom":-10,
+  "margin-top": 0,
+  "margin-bottom": 0,
   "padding-left": 0,
   "padding-right": 0,
   // Choose the order of the modules
@@ -20,22 +20,23 @@
   ],
   "modules-center": ["mpris"],
   "modules-right": [
+    "tray",
+    "custom/notifications",
     "pulseaudio",
     "backlight",
     "battery",
-    "custom/notifications",
     "network",
     "bluetooth",
     "clock",
     "custom/power",
   ],
   "hyprland/workspaces": {
-    // "format": "{icon} {name}",
+    // "format": "{icon}",
     "format": "",
-    "format-icons": {
-      "active": "",
-      "default": "",
-    },
+    // "format-icons": {
+    //   "active": "",
+    //   "default": "",
+    // },
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "on-click": "activate",
@@ -49,31 +50,28 @@
   "memory": {
     "format": " {}%",
     "tooltip": true,
-    "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
     "interval": 2,
   },
   "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 40,
+    "critical-threshold": 55,
     "format-critical": "{icon} {temperatureC}°C",
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", ""],
     "tooltip": true,
-    "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
     "interval": 2,
   },
   "disk": {
     "format": " {percentage_used}%",
     "tooltip": true,
-    "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
     "interval": 2,
   },
   "custom/updates": {
     "format": "{}",
     "exec": "~/.scripts/updates",
-    "on-click": "~/.scripts/updates update",
-    "interval": 6000,
+    // "on-click": "~/.scripts/updates update",
+    "interval": 3600,
     "tooltip": true,
     // "tooltip-format": "{}",
     // "exec-tooltip": "~/.scripts/updates tooltip"
