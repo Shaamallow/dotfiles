@@ -30,7 +30,6 @@ ignore-globs:
   - .psql_history
   - .python_history
   - .nvidia-settings-rc
-  - .ssh
   - .oh-my-zsh
   - python
   - Templates
