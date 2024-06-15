@@ -95,7 +95,7 @@
 #cpu.warning,
 #temperature.warning,
 #battery.warning:not(.charging) {
-  background: @orange;
+  background: @peach;
   border-radius: 2px;
   color: @base;
 }

@@ -20,7 +20,7 @@
   ],
   "modules-center": ["mpris"],
   "modules-right": [
-    "tray",
+    // "tray",
     "custom/notifications",
     "pulseaudio",
     "backlight",
