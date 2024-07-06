@@ -6,6 +6,11 @@ return {
         ui = {
           border = "rounded",
         },
+        ensure_installed = {
+          "black",
+          "debugpy",
+          "isort",
+        },
       })
     end,
   },
@@ -14,6 +19,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "tsserver", "pyright", "svelte" },
+        -- ruff is not installed as builtin not maintained / with available lsp for null-ls have been removed
       })
     end,
   },
@@ -49,13 +55,23 @@ return {
 
           -- Buffer local mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
-          local opts = { buffer = ev.buf }
-          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-          vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, opts)
+          vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = ev.buf })
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = ev.buf })
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover to see info", buffer = ev.buf })
+          vim.keymap.set(
+            "n",
+            "<leader>ca",
+            vim.lsp.buf.code_action,
+            { desc = "Code action", buffer = ev.buf }
+          )
+          vim.keymap.set(
+            "n",
+            "gi",
+            vim.lsp.buf.implementation,
+            { desc = "Go to implementation", buffer = ev.buf }
+          )
+          vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = "Format file", buffer = ev.buf })
+          vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = ev.buf })
         end,
       })
     end,
