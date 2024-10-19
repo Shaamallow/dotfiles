@@ -1,12 +1,16 @@
+blender/
 Electron/
 GIMP/
 QtProject.conf
 Signal/
 chromium/
+cat_installer/
 dconf/
 discord/
 filetypesrc
 github-copilot/
+go/telemetry/
+gtk-3.0/
 gwenviewrc
 htop/
 kde.org/
@@ -15,5 +19,8 @@ mimeapps.list
 obs-studio/
 pavucontrol.ini
 pulse/
+rclone/
 spotify/
+Thunar/
 vlc/
+xfce4/

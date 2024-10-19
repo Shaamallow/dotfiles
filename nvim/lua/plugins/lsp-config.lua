@@ -18,7 +18,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "pyright", "svelte" },
+				ensure_installed = { "lua_ls", "tsserver", "pyright", "svelte", "html", "hls" },
 				-- ruff is not installed as builtin not maintained / with available lsp for null-ls have been removed
 			})
 		end,
@@ -32,6 +32,9 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
@@ -42,6 +45,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.hls.setup({
 				capabilities = capabilities,
 			})
 
